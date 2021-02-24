@@ -4,11 +4,12 @@ import modelos.Empleado;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 
 public class EmpleadoDAO extends AbstractDAO{
 
-    LocalDate date =LocalDate.now();
+    LocalDateTime date =LocalDateTime.now();
 
     public EmpleadoDAO() {
        conectar();
@@ -45,7 +46,7 @@ public class EmpleadoDAO extends AbstractDAO{
         try {
             rs = st.executeQuery("SELECT * FROM empleado WHERE `id_empleado` = " + id);
             while(rs.next()) {
-               empleado=new Empleado( rs.getInt(1), rs.getDate(2),rs.getDate(3));
+               empleado=new Empleado( rs.getInt(1), rs.getString(2),rs.getDate(3));
 
             }
         }catch (SQLException ex) {

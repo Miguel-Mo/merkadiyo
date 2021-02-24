@@ -9,10 +9,10 @@ import java.util.Date;
 public class Empleado implements Serializable {
 
     int id;
-    Date ultimaSesion;
+    String ultimaSesion;
     Date fecha_contratacion;
 
-    public Empleado(int id, Date ultimaSesion,Date fecha_contratacion){
+    public Empleado(int id, String ultimaSesion,Date fecha_contratacion){
         this.id=id;
         this.ultimaSesion=ultimaSesion;
         this.fecha_contratacion=fecha_contratacion;
@@ -26,11 +26,11 @@ public class Empleado implements Serializable {
         this.id = id;
     }
 
-    public Date getUltimaSesion() {
+    public String getUltimaSesion() {
         return ultimaSesion;
     }
 
-    public void setUltimaSesion(Date ultimaSesion) {
+    public void setUltimaSesion(String ultimaSesion) {
         this.ultimaSesion = ultimaSesion;
     }
 
