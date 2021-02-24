@@ -82,7 +82,7 @@ DROP TABLE IF EXISTS `empleado`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `empleado` (
   `id_empleado` int NOT NULL AUTO_INCREMENT,
-  `ultima_sesion` date DEFAULT NULL,
+  `ultima_sesion` datetime DEFAULT NULL,
   `fecha_contratacion` date NOT NULL,
   PRIMARY KEY (`id_empleado`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
@@ -94,7 +94,7 @@ CREATE TABLE `empleado` (
 
 LOCK TABLES `empleado` WRITE;
 /*!40000 ALTER TABLE `empleado` DISABLE KEYS */;
-INSERT INTO `empleado` VALUES (1,'2021-02-24','2021-02-20'),(2,'2021-02-24','2021-02-18');
+INSERT INTO `empleado` VALUES (1,'2021-02-24 13:05:28','2021-02-20'),(2,'2021-02-24 13:06:04','2021-02-18');
 /*!40000 ALTER TABLE `empleado` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -142,4 +142,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-02-24 11:47:51
+-- Dump completed on 2021-02-24 13:09:40
