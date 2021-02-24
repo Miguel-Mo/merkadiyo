@@ -14,6 +14,11 @@ public class EmpleadoDAO extends AbstractDAO{
        conectar();
     }
 
+    /**
+     * comprobamos que el empleado existe
+     * @param id
+     * @return devolvemos true si es que si false en caso contrario
+     */
     public boolean comprobadorEmpleado(int id){
         try {
             rs = st.executeQuery("SELECT * FROM empleado WHERE id_empleado= " + id);
@@ -29,7 +34,11 @@ public class EmpleadoDAO extends AbstractDAO{
 
     }
 
-
+    /**
+     * Cogemos el empleado por la id
+     * @param id
+     * @return devuelve un objeto de tipo empleado con la info del empleado que necesitamos
+     */
     public Empleado getEmpleadoById(int id) {
 
         Empleado empleado=null;
@@ -45,6 +54,11 @@ public class EmpleadoDAO extends AbstractDAO{
         return empleado;
     }
 
+
+    /**
+     * Método para updatear la fecha de última sesión del empleado
+     * @param id
+     */
     public void updateUltimaSesion(int id){
         try {
             System.out.println(date);

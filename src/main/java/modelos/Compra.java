@@ -2,6 +2,9 @@ package modelos;
 
 import java.util.Date;
 
+/**
+ * Modelo de compra, no lo utilizo pero lo generé y lo dejé ahí
+ */
 public class Compra {
 
     int id;

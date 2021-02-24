@@ -2,8 +2,10 @@ package DAO;
 
 import java.sql.*;
 
+/**
+ * Declaramos las variables y métodos necesarios para realizar la conexión a la bbdd
+ */
 public class AbstractDAO {
-    private static final String controller = "com.mysql.jdbc.Driver";
     private static final String url = "jdbc:mysql://localhost/merkabbdd";
     private static final String user = "root";
     private static final String password = "1234";

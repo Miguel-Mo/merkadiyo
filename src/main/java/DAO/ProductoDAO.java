@@ -11,6 +11,11 @@ public class ProductoDAO extends AbstractDAO {
     }
 
 
+    /**
+     * Metodo para saber el stock de u producto
+     * @param idProduct
+     * @return un int con el numero de stock de ese producto
+     */
     public int getStockProductos(int idProduct) {
         int stockProduct = 0;
         try {
@@ -24,6 +29,11 @@ public class ProductoDAO extends AbstractDAO {
         return stockProduct;
     }
 
+    /**
+     * metodo para updatear la cantidad de stock de un producto
+     * @param id
+     * @param amount
+     */
     public void updateProduct(int id, int amount) {
         try {
             st.executeUpdate("UPDATE producto SET cantidad_stock = cantidad_stock -" + amount + " WHERE idproducto = " + id);
@@ -32,6 +42,11 @@ public class ProductoDAO extends AbstractDAO {
         }
     }
 
+    /**
+     * Método para obtener el nombre de un producto
+     * @param id
+     * @return string con el nombre del producto
+     */
     public String getNombreProducto(int id) {
         String nombreProducto = "";
         try {
@@ -45,6 +60,12 @@ public class ProductoDAO extends AbstractDAO {
         return nombreProducto;
     }
 
+
+    /**
+     * Obtenemos el precio de venta total de un producto
+     * @param idProducto
+     * @return float con el precio de venta total de un producto
+     */
     public float getPrecioVentaTotalByProducto(int idProducto) {
         float precioVentaTotal = 0;
         try {
@@ -59,6 +80,11 @@ public class ProductoDAO extends AbstractDAO {
         return precioVentaTotal;
     }
 
+    /**
+     * Obtenemos el precio de proveedor total de un producto
+     * @param idProducto
+     * @return float con el precio de proveedor total de un producto
+     */
     public float getProveedorTotalByProducto(int idProducto) {
         float precioProveedorTotal = 0;
         try {
@@ -73,6 +99,10 @@ public class ProductoDAO extends AbstractDAO {
         return precioProveedorTotal;
     }
 
+    /**
+     * Cuenta cuantos productos diferentes hay en la bbdd
+     * @return int con el numero de productos diferentes que hay en la bbdd
+     */
     public int getContadorProductos() {
         int contador = 0;
         try {

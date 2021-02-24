@@ -1,5 +1,8 @@
 package modelos;
 
+/**
+ * Modelo de Proudcto, no lo utilizo pero lo generé y lo dejé ahí
+ */
 public class Producto {
 
     int id;

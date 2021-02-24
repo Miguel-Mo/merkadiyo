@@ -3,6 +3,9 @@ package modelos;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * Modelo de empleado, utilizo el tostring para el logueo
+ */
 public class Empleado implements Serializable {
 
     int id;

@@ -7,6 +7,11 @@ import java.io.*;
 import java.net.*;
 import java.util.Scanner;
 
+
+/**
+ * Clase Cajero de la que heredan los demás cajeros. Aquí hacemos la parte del Cliente (lo que recibe del servidor y lo que se le manda).
+ * declaramos los estados de host, puerto y dos booleanos para controlar si esta logueado y si desea salir.
+ */
 public class Cajero {
     private static String Host = "localhost";
     private  static int Puerto = 6000;//puerto remoto
@@ -18,9 +23,11 @@ public class Cajero {
     public Cajero() throws IOException {
     }
 
+    /**
+     * Aquí declaramos el socket y le pasamos el host y el puerto.
+     * @throws Exception
+     */
     public static void main() throws Exception {
-
-
         cliente= new Socket(Host, Puerto);
         System.out.println("PROGRAMA CAJERO INICIADO....");
 
@@ -40,6 +47,12 @@ public class Cajero {
 
     }
 
+    /**
+     * Método login mandamos un string al servidor compuesto por login;(id); si el id es incorrecto nos llega un objeto nulo,
+     * si es correcto nos llega un objeto empleado que leemos y le hacemos un toString para que sea visible adecuadamente.
+     * También  controlamos que nos llegue un número y no una letra o cualquier tipo de símbolo a la hora de elegir la id.
+     * @throws IOException
+     */
     public static void login() throws IOException {
         //LOGIN
         Scanner scanner = new Scanner(System.in);
@@ -74,6 +87,17 @@ public class Cajero {
         }
     }
 
+    /**
+     * Método menú donde utilizamos un switch para orientar al cliente sobre que acciones quiere realizar.
+     * Opcion 1 le pasamos al servidor un string compuesto por las palabras cobrar;(el producto que quiere cobrar);(cantidad del producto).
+     * Si hay de ese producto en stock, entonces nos llega un objeto nulo e imprimimos por pantalla venta realizada, si no hay
+     * de ese producto en stock entonces nos llega un mensaje del servidor diciendo que se ha enviado un correo avisando a alguien.
+     * Opcion 2 le enviamos al servidor un String con caja; y este nos devuelve un objeto que puede ser null (no se ha vendido nada hoy) o
+     * un objeto que leemos y que nos dice tanto el total de la caja de hoy como el que ha hecho un empleado.
+     * Opcion 3 le enviamos al servidor un string exit; y nos devuelve o un objeto nulo que indica un fallo en la salida
+     * o un objeto válido y procedemos a salir de los bucles pertinentes para cerrar.
+     * @throws IOException
+     */
     public static void menu() throws IOException {
         DataOutputStream salida;
         String opcionInicial;
@@ -164,6 +188,8 @@ public class Cajero {
 
                     } else {
                         System.out.println(adios);
+                        salida.close();
+                        mensajeRecibo.close();
                         logueado=false;
                         exit=true;
                     }

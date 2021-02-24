@@ -12,9 +12,15 @@ import javax.mail.internet.MimeMessage;
 public class Mail {
     public Mail() {}
 
+    /**
+     * Método para enviar Gmail (extraido de https://www.campusmvp.es/recursos/post/como-enviar-correo-electronico-con-java-a-traves-de-gmail.aspx)
+     * @param destinatario correo al que va dirigido
+     * @param asunto asunto del correo
+     * @param cuerpo cuerpo del correo
+     */
     public static void enviarConGMail(String destinatario, String asunto, String cuerpo) {
         // Esto es lo que va delante de @gmail.com en tu cuenta de correo. Es el remitente también.
-        String remitente = "testdatalean@gmail.com";  //Para la dirección nomcuenta@gmail.com
+        String remitente = "testdatalean@gmail.com";  //Para la dirección testdatalean@gmail.com
         String password="uno234$$";
 
         Properties props = new Properties();
@@ -30,6 +36,7 @@ public class Mail {
             }
         });
 
+        //utilizamos message y le insertamos lo que tenemos y necesitamos
         try {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(destinatario));
